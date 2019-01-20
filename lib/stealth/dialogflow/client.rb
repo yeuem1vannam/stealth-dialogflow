@@ -20,6 +20,8 @@ module Stealth
         language_code = ENV["LANG"] || "en_US"
         query_input = { text: { text: text, language_code: language_code } }
         response = session_client.detect_intent session, query_input
+
+        Stealth::Logger.l topic: "dialogflow", message: response.query_result
         response.query_result
       end
     end

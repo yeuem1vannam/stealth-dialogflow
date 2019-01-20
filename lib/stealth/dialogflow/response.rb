@@ -13,6 +13,11 @@ module Stealth
         query_result && query_result.intent.display_name
       end
 
+      def action
+        # TODO: query_result.action vs query_result.intent.action
+        query_result && query_result.action
+      end
+
       private
 
       def query_result
